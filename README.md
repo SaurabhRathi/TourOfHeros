@@ -1,3 +1,10 @@
+#How to deploy Angular apps to github pages
+1) In angular.json file, change the outputpath value to “docs/”.
+2) ng build --prod --base-href "https://SaurabhRathi.github.io/heroes/". This will generate static files in docs folder
+3) --base-href option is for setting base path to your remote repo "heroes" on github
+4) push the changes
+5) in the repo settings, go to gitpages section and set the branch and folder (set folder to /docs)
+
 # AngularTourOfHeroes
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.5.

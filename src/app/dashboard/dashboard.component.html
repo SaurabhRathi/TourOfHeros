@@ -4,3 +4,12 @@
     {{hero.name}}
   </a>
 </div>
+<ag-grid-angular 
+    class="ag-theme-alpine gridposition"
+    [rowData]="rowData" 
+    [columnDefs]="columnDefs"
+    [animateRows]="true" 
+    (gridReady)="BindData($event)"
+    >
+</ag-grid-angular>
+

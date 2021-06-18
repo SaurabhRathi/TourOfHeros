@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Hero } from '../heroes/hero';
-import { HeroService } from '../hero.service';
+import { HeroService } from '../services/hero.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -20,24 +21,28 @@ export class DashboardComponent implements OnInit {
   gridApi: any;  
   gridColumnApi: any;  
   
-  BindData(params : any) {  
+  bindData(params : any) {  
     this.gridApi = params.api;  
     this.gridColumnApi = params.columnApi;  
     params.api.setRowData(this.rowData);  
       this.gridApi.sizeColumnsToFit();  
   } 
   
-  constructor(private heroService: HeroService) { }
+  constructor(private heroService: HeroService, private router: Router) { }
+  
   ngOnInit() {
     this.getHeroes();
   }
  
+  onRowClicked(event : any){
+    this.router.navigateByUrl('/detail/'+event.data.id);
+  }
 
   getHeroes(): void {
-    this.heroService.getHeroes()
+    this.heroService.getHeroesFromServer()
       .subscribe(heroes => {
-        this.heroes = heroes.slice(0,4);
-        this.rowData = heroes.slice(0,4);
+        this.rowData = heroes;
+        this.heroes = heroes.sort((a,b)=>  (b.points ? b.points : 0)-(a.points ? a.points : 0)).slice(0,4);
       });
   }
 }

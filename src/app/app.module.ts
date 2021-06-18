@@ -14,6 +14,12 @@ import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { MessagesComponent } from './messages/messages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
+//ngrx
+import { StoreModule } from '@ngrx/store';
+import { simpleReducer } from './store/reducers/simple.reducer';
+import { HttpClientModule } from '@angular/common/http';
+import { postReducer } from './store/reducers/post.reducer';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +32,10 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    AgGridModule.withComponents(null)
+    HttpClientModule,
+    AgGridModule.withComponents(null),
+    StoreModule.forRoot({ 
+      message: simpleReducer, post : postReducer })
   ],
   providers: [],
   bootstrap: [AppComponent]

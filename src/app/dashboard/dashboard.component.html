@@ -9,7 +9,8 @@
     [rowData]="rowData" 
     [columnDefs]="columnDefs"
     [animateRows]="true" 
-    (gridReady)="BindData($event)"
+    (gridReady)="bindData($event)"
+    (rowClicked)='onRowClicked($event)'
     >
 </ag-grid-angular>
 

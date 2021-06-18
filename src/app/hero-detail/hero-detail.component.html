@@ -1,11 +1,24 @@
-<div *ngIf="hero">
-    <h2>{{hero.name | uppercase}} Details</h2>
-    <div><span>id: </span>{{hero.id}}</div>
-    <div>
-      <label for="hero-name">Hero name: </label>
-      <input id="hero-name" [(ngModel)]="hero.name" placeholder="Hero name"/>
-      <label for="hero-points">Hero points: </label>
-      <input id="hero-points" [(ngModel)]="hero.points" placeholder="Hero points"/>
+<div style="padding: 2% 5%;">
+  <div *ngIf="hero">
+    <div style="border: solid 2px">
+      <h2 style="padding: 2%">{{hero.name}} Details</h2>
+      <div style="padding: 1% 2%"><span>id: </span>{{hero.id}}</div>
+      <div style="padding: 1% 2%"> 
+        <label for="hero-name">Hero name: </label>
+        <input id="hero-name" [(ngModel)]="hero.name" placeholder="Hero name"/>
+        <label for="hero-points">Hero points: </label>
+        <input id="hero-points" [(ngModel)]="hero.points" placeholder="Hero points"/>
+      </div>
     </div>
-    <button (click)="goBack()">go back</button>
+      <span *ngIf='loading' style="color: yellow;margin-top: 10px;"> Loading... <br/></span>
+      <span *ngIf='serverSavedSuccess' style="color: green;margin-top: 10px"> Saved to server! <br/></span>
+      <span *ngIf='serverSavedSuccess===false' style="color: red;margin-top: 10px"> Failed to save to server! <br/></span>
+      <button (click)="save()">Save</button>
+      <button (click)="goBack()">Go back</button>
+  </div>
+  <div *ngIf="!hero">
+    Please go back to the dashboard !!!
+    <button (click)="goBack()">Go back</button>
+  </div>
+
 </div>

@@ -1,9 +1,17 @@
-<h2>My Heroes</h2>
-<ul class="heroes">
-  <li *ngFor = "let hero of heroList">
-    <!-- [class.selected]="hero === selectedHero" -->
-    <a routerLink="/detail/{{hero.id}}">
-      <span class="badge">{{hero.id}}</span> {{hero.name}}
-      </a>
-  </li>
-</ul>
+<div style="margin: 5% 25%">
+  <div *ngIf="heroList.length>0"> 
+    <h2>My Heroes</h2>
+    <ul class="heroes">
+      <li *ngFor = "let hero of heroList">
+        <a routerLink="/detail/{{hero.id}}">
+          <span class="badge">{{hero.id}}</span> 
+          <span class="text">{{hero.name}}</span>
+        </a>
+      </li>
+      <a routerLink="/dashboard" style="margin-top: 5%;color: grey;text-decoration: underline;background-color: white;">Go to dashboard</a>
+    </ul>
+  </div>
+
+  <div *ngIf="heroList.length===0"> Please go back to <a routerLink="/dashboard">dashboard</a> </div> 
+
+</div>

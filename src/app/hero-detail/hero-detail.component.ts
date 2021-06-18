@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
 import { Hero } from '../heroes/hero';
-import { HeroService } from '../hero.service';
+import { HeroService } from '../services/hero.service';
 
 @Component({
   selector: 'app-hero-detail',
@@ -12,6 +12,8 @@ import { HeroService } from '../hero.service';
 })
 export class HeroDetailComponent implements OnInit {
   hero?: Hero;
+  serverSavedSuccess?: boolean;
+  loading?:boolean;
 
   constructor(
     private route: ActivatedRoute,
@@ -21,18 +23,29 @@ export class HeroDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.getHero();
+    this.serverSavedSuccess = undefined;
+    this.loading=false;
   }
 
   getHero(): void {
-    const idany = this.route.snapshot.paramMap.get('id');
-    const id = idany ? +idany : 0;
-    this.heroService.getHero(id)
-      .subscribe(hero => this.hero = hero);
+    const id  = this.route.snapshot.paramMap.get('id');
+    this.heroService.getHeroesFromLocal().subscribe(heros=>this.hero = heros.find(h => h.id === (id ? +id : 0)) as Hero);
   }
 
-  goBack(): void {
+  save(){
+    if(this.hero){
+      this.loading=true;
+      this.heroService.updateHero(this.hero).subscribe(
+        res => {this.serverSavedSuccess = res ? true : false; this.loading = false;}
+      );
+    }
+   
+  }
+
+  goBack(){
     this.location.back();
   }
+
 
 
   // The ActivatedRoute holds information about the route to this instance of the HeroDetailComponent. This component is interested in the route's parameters extracted from the URL. The "id" parameter is the id of the hero to display.

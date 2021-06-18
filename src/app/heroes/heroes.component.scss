@@ -1,6 +1,6 @@
 /* HeroesComponent's private CSS styles */
 .heroes {
-  margin: 0 0 2em 0;
+  margin: 0.7em;
   list-style-type: none;
   padding: 0;
   width: 15em;
@@ -11,19 +11,19 @@
 }
 
 .heroes li:hover {
-  left: .1em;
+  left: .2em;
 }
 
 .heroes a {
   color: #333;
   text-decoration: none;
   background-color: #EEE;
-  margin: .5em;
-  padding: .3em 0;
-  height: 1.6em;
-  border-radius: 4px;
+  margin: .7em;
+  height: 1.7em;
+  border-radius: 5px;
   display: block;
   width: 100%;
+  // box-sizing: content-box;
 }
 
 .heroes a:hover {
@@ -37,20 +37,12 @@
 }
 
 .heroes .badge {
-  display: inline-block;
-  font-size: small;
-  color: white;
-  padding: 0.8em 0.7em 0 0.7em;
-  background-color:#405061;
-  line-height: 1em;
-  position: relative;
-  left: -1px;
-  top: -4px;
-  height: 1.8em;
-  min-width: 16px;
-  text-align: right;
-  margin-right: .8em;
-  border-radius: 4px 0 0 4px;
+  background-color: #405061;
+    color: white;
+}
+
+.heroes .text{
+  margin-left: 25%;
 }
 
 

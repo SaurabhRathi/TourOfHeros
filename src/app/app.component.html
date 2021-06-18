@@ -1,7 +1,58 @@
 <h1>{{title}}</h1>
-<nav>
-  <a routerLink="/dashboard">Dashboard</a>
-  <a routerLink="/heroes">Heroes</a>
-</nav>
+
+
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
+  <a class="navbar-brand" href="#">AngularApp</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Tutorial <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/dashboard" routerLink="/dashboard">Dashboard</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/heroes" routerLink="/heroes">Heroes</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://saurabhrathi.github.io/" target="_blank">Portfolio</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://saurabhrathi.github.io/deploy-angular-apps-to-github-pages/" target="_blank">Blog</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://saurabhrathi.github.io/aboutme/" target="_blank">AboutMe</a>
+      </li>
+    </ul>
+    <span class="navbar-text">
+      <a  href="mailto:saurabhrathi1908@gmail.com">Connect with Me :)</a>
+    </span>
+  </div>
+</nav> 
+
+
+<!-- <h1 style="padding-top: 70px;">{{ message$ | async }}</h1>
+
+<button (click)="spanishMessage()">Spanish</button>
+<button (click)="frenchMessage()">French</button>
+
+<div *ngIf="post | async as p">
+
+x`
+  <h2>{{ p.text }}</h2>
+  <h4>Votes: {{ p.likes }}</h4>
+
+  <button (click)="upvote()">Upvote</button>
+  <button (click)="downvote()">Downvote</button>
+  <button (click)="resetPost()">Reset</button>
+
+  <input [(ngModel)]="text">
+  <button (click)="editText()" >Change Title</button>
+
+</div> -->
+
 <router-outlet></router-outlet>
 <app-messages></app-messages>

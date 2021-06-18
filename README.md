@@ -5,6 +5,19 @@
 4) push the changes
 5) in the repo settings, go to gitpages section and set the branch and folder (set folder to /docs)
 
+# Ngrx 
+Ngrx = Redux(Store)(React's state mgmt library) + rxjs(Observable)
+Ngrx=  State Mgmt using observable
+
+Action  : just defines what all actions that can be taken which can modify state (actions.ts = defines all actions and their the payload)
+         
+Reducer : way to get data from store given the action (reducer.ts = what happens on each action like switch(action) { case Action.A : return ...state;})
+
+effects : way to pass action to another action like getDataAction 
+            ssucess
+
+
+
 # AngularTourOfHeroes
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.5.
